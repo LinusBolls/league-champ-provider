@@ -5,12 +5,14 @@ from copy import deepcopy
 import requests
 import inquirer
 
-from os.path import exists
+from os import path
 
-CHAMP_FILE_PATH = "../champs.json"
+SRC_DIR = path.dirname(__file__)
+
+CHAMP_FILE_PATH = path.join(SRC_DIR, "../champs.json")
 
 def load_champs():
-  if exists(CHAMP_FILE_PATH):
+  if path.exists(CHAMP_FILE_PATH):
     with open(CHAMP_FILE_PATH, "r") as f:
       print(f"loaded champions from {CHAMP_FILE_PATH}")
 
